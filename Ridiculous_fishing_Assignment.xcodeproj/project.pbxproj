@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD6AC80F236130BD00F1A62A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AC80E236130BD00F1A62A /* AppDelegate.swift */; };
+		DD6AC811236130BD00F1A62A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD6AC810236130BD00F1A62A /* GameScene.sks */; };
+		DD6AC813236130BD00F1A62A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD6AC812236130BD00F1A62A /* Actions.sks */; };
+		DD6AC815236130BD00F1A62A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AC814236130BD00F1A62A /* GameScene.swift */; };
+		DD6AC817236130BD00F1A62A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AC816236130BD00F1A62A /* GameViewController.swift */; };
+		DD6AC81A236130BD00F1A62A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6AC818236130BD00F1A62A /* Main.storyboard */; };
+		DD6AC81C236130BF00F1A62A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6AC81B236130BF00F1A62A /* Assets.xcassets */; };
+		DD6AC81F236130BF00F1A62A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6AC81D236130BF00F1A62A /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD6AC80B236130BD00F1A62A /* Ridiculous_fishing_Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ridiculous_fishing_Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD6AC80E236130BD00F1A62A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD6AC810236130BD00F1A62A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		DD6AC812236130BD00F1A62A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		DD6AC814236130BD00F1A62A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DD6AC816236130BD00F1A62A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		DD6AC819236130BD00F1A62A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD6AC81B236130BF00F1A62A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD6AC81E236130BF00F1A62A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD6AC820236130BF00F1A62A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD6AC808236130BD00F1A62A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD6AC802236130BD00F1A62A = {
+			isa = PBXGroup;
+			children = (
+				DD6AC80D236130BD00F1A62A /* Ridiculous_fishing_Assignment */,
+				DD6AC80C236130BD00F1A62A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD6AC80C236130BD00F1A62A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD6AC80B236130BD00F1A62A /* Ridiculous_fishing_Assignment.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD6AC80D236130BD00F1A62A /* Ridiculous_fishing_Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				DD6AC80E236130BD00F1A62A /* AppDelegate.swift */,
+				DD6AC810236130BD00F1A62A /* GameScene.sks */,
+				DD6AC812236130BD00F1A62A /* Actions.sks */,
+				DD6AC814236130BD00F1A62A /* GameScene.swift */,
+				DD6AC816236130BD00F1A62A /* GameViewController.swift */,
+				DD6AC818236130BD00F1A62A /* Main.storyboard */,
+				DD6AC81B236130BF00F1A62A /* Assets.xcassets */,
+				DD6AC81D236130BF00F1A62A /* LaunchScreen.storyboard */,
+				DD6AC820236130BF00F1A62A /* Info.plist */,
+			);
+			path = Ridiculous_fishing_Assignment;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD6AC80A236130BD00F1A62A /* Ridiculous_fishing_Assignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD6AC823236130BF00F1A62A /* Build configuration list for PBXNativeTarget "Ridiculous_fishing_Assignment" */;
+			buildPhases = (
+				DD6AC807236130BD00F1A62A /* Sources */,
+				DD6AC808236130BD00F1A62A /* Frameworks */,
+				DD6AC809236130BD00F1A62A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ridiculous_fishing_Assignment;
+			productName = Ridiculous_fishing_Assignment;
+			productReference = DD6AC80B236130BD00F1A62A /* Ridiculous_fishing_Assignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD6AC803236130BD00F1A62A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Lampton;
+				TargetAttributes = {
+					DD6AC80A236130BD00F1A62A = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = DD6AC806236130BD00F1A62A /* Build configuration list for PBXProject "Ridiculous_fishing_Assignment" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD6AC802236130BD00F1A62A;
+			productRefGroup = DD6AC80C236130BD00F1A62A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD6AC80A236130BD00F1A62A /* Ridiculous_fishing_Assignment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD6AC809236130BD00F1A62A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD6AC81A236130BD00F1A62A /* Main.storyboard in Resources */,
+				DD6AC811236130BD00F1A62A /* GameScene.sks in Resources */,
+				DD6AC81C236130BF00F1A62A /* Assets.xcassets in Resources */,
+				DD6AC81F236130BF00F1A62A /* LaunchScreen.storyboard in Resources */,
+				DD6AC813236130BD00F1A62A /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD6AC807236130BD00F1A62A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD6AC815236130BD00F1A62A /* GameScene.swift in Sources */,
+				DD6AC817236130BD00F1A62A /* GameViewController.swift in Sources */,
+				DD6AC80F236130BD00F1A62A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD6AC818236130BD00F1A62A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD6AC819236130BD00F1A62A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD6AC81D236130BF00F1A62A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD6AC81E236130BF00F1A62A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD6AC821236130BF00F1A62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD6AC822236130BF00F1A62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD6AC824236130BF00F1A62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9QP633TSD5;
+				INFOPLIST_FILE = Ridiculous_fishing_Assignment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasvir.Ridiculous-fishing-Assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD6AC825236130BF00F1A62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9QP633TSD5;
+				INFOPLIST_FILE = Ridiculous_fishing_Assignment/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasvir.Ridiculous-fishing-Assignment";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD6AC806236130BD00F1A62A /* Build configuration list for PBXProject "Ridiculous_fishing_Assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD6AC821236130BF00F1A62A /* Debug */,
+				DD6AC822236130BF00F1A62A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD6AC823236130BF00F1A62A /* Build configuration list for PBXNativeTarget "Ridiculous_fishing_Assignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD6AC824236130BF00F1A62A /* Debug */,
+				DD6AC825236130BF00F1A62A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD6AC803236130BD00F1A62A /* Project object */;
+}
