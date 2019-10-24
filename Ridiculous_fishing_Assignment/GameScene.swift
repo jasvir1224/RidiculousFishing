@@ -16,6 +16,7 @@ class GameScene: SKScene {
     var hook: SKSpriteNode!
     var rope: SKSpriteNode!
     var smallplants:SKSpriteNode!
+    var bush:SKSpriteNode!
     
     
     
@@ -38,17 +39,28 @@ class GameScene: SKScene {
      let move2 = SKAction.moveBy(x: 0, y: -20, duration: 1)
      //small plants are moving
     self.enumerateChildNodes(withName: "smallplants")
-                  
                  
-                   {
+                    {
                      (node, stop) in
                      self.smallplants = node as! SKSpriteNode
                      let Animation = SKAction.sequence([move1,move2,move1])
                      
                      let foreverMove = SKAction.repeatForever(Animation)
                      self.smallplants.run(foreverMove)
-                 }
+                    }
     
+        self.enumerateChildNodes(withName: "bush")
+        
+           {
+            (node, stop) in
+            self.bush = node as! SKSpriteNode
+            let Animation = SKAction.sequence([move1,move2,move1])
+            
+            let foreverMove = SKAction.repeatForever(Animation)
+            self.bush.run(foreverMove)
+           }
+        
+        
     }
     var fish:[SKSpriteNode] = []
     
