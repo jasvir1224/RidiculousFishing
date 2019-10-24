@@ -18,8 +18,8 @@ class GameScene: SKScene {
     var smallplants:SKSpriteNode!
     var bush:SKSpriteNode!
     
-
-    
+    var flag:Bool = false
+     var SPEEDLimit: CGFloat = 400
     
     var mouseX:CGFloat = 0
     var mouseY:CGFloat = 0
@@ -91,7 +91,36 @@ class GameScene: SKScene {
            
        }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            let mouseTouch = touches.first
+                     if( mouseTouch == nil){
+                         return
+                     }
+             let location = mouseTouch!.location(in: self)
+             
+    //
+                self.hook.position.x=location.x
+    //         self.rope.position.x = location.x
+    //         self.water.position.x = location.x
+    //         self.mud.position.x=location.x
+
+             print("location: \(mouseTouch!.location(in: self.view))")
+             let nodeTouched = atPoint(location).name
+             if(nodeTouched == "play"){
+                  flag = true
+
+               let moveUp: SKAction
+               var moveDown: SKAction
+                moveUp = SKAction.moveBy(x: 0, y: self.SPEEDLimit-400, duration: 1)
+                 
+               
+                self.hook.run(moveUp)
+
+                 //5. Time to spawn random fishes
+
+             }
+            
+        }
     
     
     var numLoops = 0
@@ -115,8 +144,5 @@ class GameScene: SKScene {
     }
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
 }
 
