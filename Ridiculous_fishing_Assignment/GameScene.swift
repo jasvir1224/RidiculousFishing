@@ -30,61 +30,57 @@ class GameScene: SKScene {
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-        
+//        mud.position = CGPoint(x: size.width/4, y: size.height/4)
+//addChild(mud)
         
         hook = SKSpriteNode(imageNamed: "hook")
         addChild(hook)
         rope = SKSpriteNode(imageNamed: "rope")
         addChild(rope)
         
+        
+        
+    //    let fishmove1  = SKAction.moveBy(x: GFloat, y: <#T##CGFloat#>, duration: <#T##TimeInterval#>)
+        
     let move1 = SKAction.moveBy(x: 0, y: 10, duration: 1)
      let move2 = SKAction.moveBy(x: 0, y: -20, duration: 1)
      //small plants are moving
-    self.enumerateChildNodes(withName: "smallplants")
-                 
-                    {
+    self.enumerateChildNodes(withName: "smallplants"){
                      (node, stop) in
-                     self.smallplants = node as! SKSpriteNode
+        self.smallplants = (node as! SKSpriteNode)
                      let Animation = SKAction.sequence([move1,move2,move1])
                      
                      let foreverMove = SKAction.repeatForever(Animation)
                      self.smallplants.run(foreverMove)
                     }
     
-        self.enumerateChildNodes(withName: "bush")
-        
-           {
+        self.enumerateChildNodes(withName: "bush"){
             (node, stop) in
-            self.bush = node as! SKSpriteNode
+            self.bush = (node as! SKSpriteNode)
             let Animation = SKAction.sequence([move1,move2,move1])
             
             let foreverMove = SKAction.repeatForever(Animation)
             self.bush.run(foreverMove)
            }
         
-        
-    }
-    var fish:[SKSpriteNode] = []
+}
     
-    func spawnfish() {
-        // Add a cat to a static location
-        let fish = SKSpriteNode(imageNamed: "fish")
-        
-        // generate a random x position
-
-  
-      
     
      var fishes:[SKSpriteNode] = []
        
        func spawnFish() {
+        
+        let fishes = ["fish","fish-1","fish-2","fish-3","fish-4","fish-5","fish-6","fish-7","fish-8","fish-9"]
+        
+        let r = Int(CGFloat.random(in: 1 ... 10))
+
            // Add a cat to a static location
-           let fish = SKSpriteNode(imageNamed: "fish-1")
+           let fish = SKSpriteNode(imageNamed: fishes[r])
            
            // generate a random x position
            
-        let randomXPos = CGFloat.random(in: 0 ... size.width)
-           let randomYPos = CGFloat.random(in: 0 ... size.height)
+        let randomXPos = CGFloat.random(in: 0 ... self.mud.size.width)
+           let randomYPos = CGFloat.random(in: 0 ... self.mud.size.height)
            fish.position = CGPoint(x:randomYPos, y:randomXPos)
            
            // add the cat to the screen
@@ -115,6 +111,12 @@ class GameScene: SKScene {
             self.spawnFish()
 
         }
-}
+        
+    }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
 }
 
