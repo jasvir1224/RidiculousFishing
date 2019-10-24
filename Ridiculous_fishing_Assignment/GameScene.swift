@@ -13,6 +13,9 @@ class GameScene: SKScene {
     
     var water: SKSpriteNode!
     var mud: SKSpriteNode!
+    var hook: SKSpriteNode!
+    var rope: SKSpriteNode!
+    
     
     
     var mouseX:CGFloat = 0
@@ -20,9 +23,16 @@ class GameScene: SKScene {
     
     
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "background1")
-        background.position = CGPoint(x: size.width/2, y: size.height/2)
-        addChild(background)
+        water = SKSpriteNode(imageNamed: "water")
+       
+        mud = SKSpriteNode(imageNamed: "mud")
+        
+        
+        hook = SKSpriteNode(imageNamed: "hook")
+        addChild(hook)
+        rope = SKSpriteNode(imageNamed: "rope")
+        addChild(rope)
+        
     }
     
     
