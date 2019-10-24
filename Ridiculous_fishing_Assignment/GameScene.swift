@@ -18,6 +18,7 @@ class GameScene: SKScene {
     var smallplants:SKSpriteNode!
     var bush:SKSpriteNode!
     
+
     
     
     var mouseX:CGFloat = 0
@@ -25,6 +26,7 @@ class GameScene: SKScene {
     
     
     override func didMove(to view: SKView) {
+        
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
@@ -69,16 +71,50 @@ class GameScene: SKScene {
         let fish = SKSpriteNode(imageNamed: "fish")
         
         // generate a random x position
-        
+
+  
+      
+    
+     var fishes:[SKSpriteNode] = []
+       
+       func spawnFish() {
+           // Add a cat to a static location
+           let fish = SKSpriteNode(imageNamed: "fish-1")
+           
+           // generate a random x position
+           
         let randomXPos = CGFloat.random(in: 0 ... size.width)
-        let randomYPos = CGFloat.random(in: 300 ... -320)
-        fish.position = CGPoint(x:randomXPos, y:randomYPos)
+           let randomYPos = CGFloat.random(in: 0 ... size.height)
+           fish.position = CGPoint(x:randomYPos, y:randomXPos)
+           
+           // add the cat to the screen
+           addChild(fish)
+           
+           // add the cat to the array
+        self.fishes.append(fish)
+           
+       }
+    
+    
+    
+    
+    var numLoops = 0
+    
+    override func update(_ currentTime: TimeInterval) {
         
-        // add the cat to the screen
-        addChild(fish)
-        
-        // add the cat to the array
-        self.fish.append(fish)
-        
-    }
-    }
+
+        // OPTION 1 for generating 1 cat every 2 seconds
+        // -- Tie the cat spawn rate to the frame rate
+        // -- The game loops 60 times per second (fps = 60)
+        // -- Therefore, it will loop 120 times in 2 seconds
+        // -- Detect when the the loop has run 120 times
+        // -- When count = 120, spawn a cat
+        numLoops = numLoops + 1
+        if (numLoops % 120 == 0) {
+            // make a cat
+            self.spawnFish()
+
+        }
+}
+}
+
