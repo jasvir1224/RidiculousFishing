@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var mud: SKSpriteNode!
     var hook: SKSpriteNode!
     var rope: SKSpriteNode!
+    var smallplants:SKSpriteNode!
     
     
     
@@ -33,9 +34,22 @@ class GameScene: SKScene {
         rope = SKSpriteNode(imageNamed: "rope")
         addChild(rope)
         
+    let move1 = SKAction.moveBy(x: 0, y: 10, duration: 1)
+     let move2 = SKAction.moveBy(x: 0, y: -20, duration: 1)
+     //small plants are moving
+    self.enumerateChildNodes(withName: "smallplants")
+                  
+                 
+                   {
+                     (node, stop) in
+                     self.smallplants = node as! SKSpriteNode
+                     let Animation = SKAction.sequence([move1,move2,move1])
+                     
+                     let foreverMove = SKAction.repeatForever(Animation)
+                     self.smallplants.run(foreverMove)
+                 }
+    
     }
-    
-    
     var fish:[SKSpriteNode] = []
     
     func spawnfish() {
@@ -55,4 +69,4 @@ class GameScene: SKScene {
         self.fish.append(fish)
         
     }
-}
+    }
