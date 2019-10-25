@@ -18,27 +18,37 @@ class GameScene: SKScene {
     var smallplants:SKSpriteNode!
     var bush:SKSpriteNode!
     var play:SKSpriteNode!
-    
-    var flag:Bool = false
-     var SPEEDLimit: CGFloat = 400
-    
+         var SPEEDLimit: CGFloat = 200
+    var scoreLabel:SKLabelNode!
+
     var mouseX:CGFloat = 0
     var mouseY:CGFloat = 0
     var direction: String = ""
     var numLoops = 0
+     var score = 0
     
     override func didMove(to view: SKView) {
         
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-    //  mud.position = CGPoint(x: 365.208, y: 81.018)
-    //addChild(mud)
+   
          play = SKSpriteNode(imageNamed: "play")
         hook = SKSpriteNode(imageNamed: "hook")
+       hook.position = CGPoint(x: 589.175, y: 640)
+
         addChild(hook)
         rope = SKSpriteNode(imageNamed: "rope")
         addChild(rope)
+        
+        
+        self.scoreLabel = SKLabelNode(text: "Score: \(self.score)")
+        self.scoreLabel.position = CGPoint(x:500, y:1100)
+        self.scoreLabel.fontColor = UIColor.black
+        self.scoreLabel.fontSize = 40
+        self.scoreLabel.fontName = "Avenir"
+        addChild(self.scoreLabel)
+        
         
         
         
@@ -69,20 +79,47 @@ class GameScene: SKScene {
     
     
      var fishes:[SKSpriteNode] = []
-       
-       func spawnFish() {
+    var badfishes:[SKSpriteNode] = []
+    
+    func spawnbadfishes() {
+        let badImages = ["badfish","badfish-1","badfish-2"]
+         let r1 = Int(CGFloat.random(in: 1 ... 3))
+ let badfish = SKSpriteNode(imageNamed: badImages[r1])
+        let randomXPos = CGFloat.random(in: 100 ... 550 )
+        let randomYPos = CGFloat.random(in: 0 ... 320)
+        badfish.position = CGPoint(x:randomYPos, y:randomXPos)
+        addChild(badfish)
+        self.badfishes.append(badfish)
         
-        let fishesImages = ["fish","fish-1","fish-2","fish-3","fish-4","fish-6","fish-7","fish-8","fish-9"]
+        for (_, badfish) in self.badfishes.enumerated() {
+            if( self.direction == "right"){
+                badfish.position.x = badfish.position.x + 200
+                
+                if (badfish.position.x >= size.width) {
+                    self.direction = "left"
+                }
+            }else if (badfish.position.x <= 0 ){
+                
+                badfish.position.x = badfish.position.x - 200
+                
+                self.direction = "right"
+            }
+            
+        }
+    }
+    
+    
+func spawnFish() {
         
-        let r = Int(CGFloat.random(in: 1 ... 9))
-
-           // Add a cat to a static location
+        let fishesImages = ["fish","fish-1","fish-2","fish-3","fish-4","fish-6"]
+        
+        let r = Int(CGFloat.random(in: 1 ... 6))
            let fish = SKSpriteNode(imageNamed: fishesImages[r])
            
            // generate a random x position
            
-        let randomXPos = CGFloat.random(in: 0 ... 650 )
-           let randomYPos = CGFloat.random(in: -320 ... 320)
+        let randomXPos = CGFloat.random(in: 100 ... 550 )
+           let randomYPos = CGFloat.random(in: 0 ... 320)
            fish.position = CGPoint(x:randomYPos, y:randomXPos)
            
            // add the cat to the screen
@@ -94,14 +131,13 @@ class GameScene: SKScene {
 //        if(fishes.count <= 10){
 //        fish.removeFromParent()
 //        }
-      for (index, fish) in self.fishes.enumerated() {
+      for (_, fish) in self.fishes.enumerated() {
         if( self.direction == "right"){
            
         
  fish.position.x = fish.position.x + 200
             
             if (fish.position.x >= size.width) {
-                // bounce off left wall
                self.direction = "left"
             }
         }else if (fish.position.x <= 0 ){
@@ -125,44 +161,79 @@ class GameScene: SKScene {
             //        self.rope.position.x = location.x
             //        self.water.position.x = location.x
             //        self.mud.position.x=location.x
+        
+        self.mouseX = location.x
+        self.mouseY = location.y
 
-                     print("location: \(mouseTouch!.location(in: self.view))")
-                     let nodeTouched = atPoint(location).name
-                     if(nodeTouched == "play"){
-                          flag = true
+//                     print("location: \(mouseTouch!.location(in: self.view))")
+//                     let nodeTouched = atPoint(location).name
+//                     if(nodeTouched == "play"){
+//
+//        let  moveUp = SKAction.moveBy(x: 0, y:self.SPEEDLimit, duration: 1)
+//                         self.hook.run(moveUp)
 
-                       let moveUp: SKAction
-                       var moveDown: SKAction
-                        moveUp = SKAction.moveBy(x: 0, y:self.SPEEDLimit, duration: 1)
-                         self.hook.run(moveUp)
-
-
-             }
-            
+        
         }
     
-   
-    
-    override func update(_ currentTime: TimeInterval) {
+    func movehook(mouseXPosition:CGFloat, mouseYPostion:CGFloat) {
         
-
-        // OPTION 1 for generating 1 cat every 2 seconds
-        // -- Tie the cat spawn rate to the frame rate
-        // -- The game loops 60 times per second (fps = 60)
-        // -- Therefore, it will loop 120 times in 2 seconds
-        // -- Detect when the the loop has run 120 times
-        // -- When count = 120, spawn a cat
-        numLoops = numLoops + 1
-        if (numLoops % 120 == 0) {
-            // make a cat
-            self.spawnFish()
-
-        }
+       
+        let a = (self.mouseX - self.hook.position.x);
+        let b = (self.mouseY - self.hook.position.y);
+        let distance = sqrt((a * a) + (b * b))
         
-      
+        // 2. calculate the "rate" to move
+        let xn = (a / distance)
+        let yn = (b / distance)
+        
+        // 3. move the bullet
+        self.hook.position.x = self.hook.position.x + (xn * 5);
+        self.hook.position.y = self.hook.position.y + (yn * 5);
         
     }
+   
+
     
     
+    override func update(_ currentTime: TimeInterval){
+        movehook(mouseXPosition: self.mouseX, mouseYPostion: self.mouseY)
+        
+    numLoops = numLoops + 1
+        if (numLoops % 80 == 0) {
+            self.spawnFish()
+            self.spawnbadfishes()
+        }
+        
+        for (index , fish) in self.fishes.enumerated() {
+            if (self.hook.frame.intersects(fish.frame) == true) {
+                // increase teh score & update the label
+                self.score = self.score + 1
+                self.scoreLabel.text = "Score: \(self.score)"
+                fish.removeFromParent()
+                // remove cat from array
+                self.fishes.remove(at:index)
+                
+//
+                
+                
+                for (index , badfish) in self.badfishes.enumerated() {
+                    if (self.hook.frame.intersects(badfish.frame) == true) {
+                        // increase teh score & update the label
+                        self.score = self.score - 1
+                        self.scoreLabel.text = "Score: \(self.score)"
+                        badfish.removeFromParent()
+                        // remove cat from array
+                        self.badfishes.remove(at:index)
+                
+            }
+        }
+                
+              
+    }
+
+
 }
 
+
+}
+}
