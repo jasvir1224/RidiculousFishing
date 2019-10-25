@@ -10,7 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
     var water: SKSpriteNode!
     var mud: SKSpriteNode!
     var hook: SKSpriteNode!
@@ -19,20 +18,26 @@ class GameScene: SKScene {
     var bush:SKSpriteNode!
     
     var flag:Bool = false
-     var SPEEDLimit: CGFloat = 400
+    var SPEEDLimit: CGFloat = 400
+    var play:SKSpriteNode!
     
     var mouseX:CGFloat = 0
     var mouseY:CGFloat = 0
-    
     
     override func didMove(to view: SKView) {
         
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-//        mud.position = CGPoint(x: size.width/4, y: size.height/4)
-//addChild(mud)
         
+        
+        
+        
+        
+        
+      //mud.position = CGPoint(x: size.width/4, y: size.height/4)
+      //addChild(mud)
+        play = SKSpriteNode(imageNamed: "mud")
         hook = SKSpriteNode(imageNamed: "hook")
         addChild(hook)
         rope = SKSpriteNode(imageNamed: "rope")
@@ -42,7 +47,7 @@ class GameScene: SKScene {
         
     //    let fishmove1  = SKAction.moveBy(x: GFloat, y: <#T##CGFloat#>, duration: <#T##TimeInterval#>)
         
-    let move1 = SKAction.moveBy(x: 0, y: 10, duration: 1)
+     let move1 = SKAction.moveBy(x: 0, y: 10, duration: 1)
      let move2 = SKAction.moveBy(x: 0, y: -20, duration: 1)
      //small plants are moving
     self.enumerateChildNodes(withName: "smallplants"){
@@ -62,7 +67,7 @@ class GameScene: SKScene {
             let foreverMove = SKAction.repeatForever(Animation)
             self.bush.run(foreverMove)
            }
-        
+    
 }
     
     
@@ -79,15 +84,14 @@ class GameScene: SKScene {
            
            // generate a random x position
            
-        let randomXPos = CGFloat.random(in: 0 ... self.mud.size.width)
+          let randomXPos = CGFloat.random(in: 0 ... self.mud.size.width)
            let randomYPos = CGFloat.random(in: 0 ... self.mud.size.height)
            fish.position = CGPoint(x:randomYPos, y:randomXPos)
            
            // add the cat to the screen
            addChild(fish)
-           
            // add the cat to the array
-        self.fishes.append(fish)
+            self.fishes.append(fish)
            
        }
     
@@ -97,12 +101,12 @@ class GameScene: SKScene {
                          return
                      }
              let location = mouseTouch!.location(in: self)
-             
-    //
-                self.hook.position.x=location.x
-    //         self.rope.position.x = location.x
-    //         self.water.position.x = location.x
-    //         self.mud.position.x=location.x
+        
+        self.hook.position.x=location.x
+       // self.hook.position.y=loctaion.y
+    //        self.rope.position.x = location.x
+    //        self.water.position.x = location.x
+    //        self.mud.position.x=location.x
 
              print("location: \(mouseTouch!.location(in: self.view))")
              let nodeTouched = atPoint(location).name
@@ -111,10 +115,8 @@ class GameScene: SKScene {
 
                let moveUp: SKAction
                var moveDown: SKAction
-                moveUp = SKAction.moveBy(x: 0, y: self.SPEEDLimit-400, duration: 1)
-                 
-               
-                self.hook.run(moveUp)
+                moveUp = SKAction.moveBy(x: 0, y:self.SPEEDLimit, duration: 1)
+                 self.hook.run(moveUp)
 
                  //5. Time to spawn random fishes
 
