@@ -17,6 +17,7 @@ class GameScene: SKScene {
     var rope: SKSpriteNode!
     var smallplants:SKSpriteNode!
     var bush:SKSpriteNode!
+    var play:SKSpriteNode!
     
     var flag:Bool = false
      var SPEEDLimit: CGFloat = 400
@@ -31,9 +32,9 @@ class GameScene: SKScene {
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-//       mud.position = CGPoint(x: 365.208, y: 81.018)
-//addChild(mud)
-        
+    //  mud.position = CGPoint(x: 365.208, y: 81.018)
+    //addChild(mud)
+         play = SKSpriteNode(imageNamed: "play")
         hook = SKSpriteNode(imageNamed: "hook")
         addChild(hook)
         rope = SKSpriteNode(imageNamed: "rope")
@@ -55,7 +56,7 @@ class GameScene: SKScene {
                      self.smallplants.run(foreverMove)
                     }
     
-        self.enumerateChildNodes(withName: "bush"){
+           self.enumerateChildNodes(withName: "bush"){
             (node, stop) in
             self.bush = (node as! SKSpriteNode)
             let Animation = SKAction.sequence([move1,move2,move1])
@@ -88,7 +89,7 @@ class GameScene: SKScene {
            addChild(fish)
            
            // add the cat to the array
-        self.fishes.append(fish)
+          self.fishes.append(fish)
         
 //        if(fishes.count <= 10){
 //        fish.removeFromParent()
@@ -114,30 +115,27 @@ class GameScene: SKScene {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             let mouseTouch = touches.first
-                     if( mouseTouch == nil){
-                         return
-                     }
-             let location = mouseTouch!.location(in: self)
-             
-    //
+                             if( mouseTouch == nil){
+                                 return
+                             }
+                     let location = mouseTouch!.location(in: self)
+                
                 self.hook.position.x=location.x
-    //         self.rope.position.x = location.x
-    //         self.water.position.x = location.x
-    //         self.mud.position.x=location.x
+               // self.hook.position.y=loctaion.y
+            //        self.rope.position.x = location.x
+            //        self.water.position.x = location.x
+            //        self.mud.position.x=location.x
 
-             print("location: \(mouseTouch!.location(in: self.view))")
-             let nodeTouched = atPoint(location).name
-             if(nodeTouched == "rope"){
-                 // flag = true
+                     print("location: \(mouseTouch!.location(in: self.view))")
+                     let nodeTouched = atPoint(location).name
+                     if(nodeTouched == "play"){
+                          flag = true
 
-               let moveUp: SKAction
-               var moveDown: SKAction
-                moveUp = SKAction.moveBy(x: 0, y: self.SPEEDLimit-400, duration: 1)
-                 
-               
-                self.hook.run(moveUp)
+                       let moveUp: SKAction
+                       var moveDown: SKAction
+                        moveUp = SKAction.moveBy(x: 0, y:self.SPEEDLimit, duration: 1)
+                         self.hook.run(moveUp)
 
-                 //5. Time to spawn random fishes
 
              }
             
