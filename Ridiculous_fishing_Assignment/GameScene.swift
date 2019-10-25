@@ -23,15 +23,16 @@ class GameScene: SKScene {
     
     var mouseX:CGFloat = 0
     var mouseY:CGFloat = 0
-    
+    var direction: String = ""
+    var numLoops = 0
     
     override func didMove(to view: SKView) {
         
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-//        mud.position = CGPoint(x: size.width/4, y: size.height/4)
-//addChild(mud)
+       mud.position = CGPoint(x: 365.208, y: 81.018)
+addChild(mud)
         
         hook = SKSpriteNode(imageNamed: "hook")
         addChild(hook)
@@ -70,17 +71,17 @@ class GameScene: SKScene {
        
        func spawnFish() {
         
-        let fishes = ["fish","fish-1","fish-2","fish-3","fish-4","fish-5","fish-6","fish-7","fish-8","fish-9"]
+        let fishesImages = ["fish","fish-1","fish-2","fish-3","fish-4","fish-6","fish-7","fish-8","fish-9"]
         
-        let r = Int(CGFloat.random(in: 1 ... 10))
+        let r = Int(CGFloat.random(in: 1 ... 9))
 
            // Add a cat to a static location
-           let fish = SKSpriteNode(imageNamed: fishes[r])
+           let fish = SKSpriteNode(imageNamed: fishesImages[r])
            
            // generate a random x position
            
-        let randomXPos = CGFloat.random(in: 0 ... self.mud.size.width)
-           let randomYPos = CGFloat.random(in: 0 ... self.mud.size.height)
+        let randomXPos = CGFloat.random(in: 0 ... 650 )
+           let randomYPos = CGFloat.random(in: -320 ... 320)
            fish.position = CGPoint(x:randomYPos, y:randomXPos)
            
            // add the cat to the screen
@@ -88,9 +89,27 @@ class GameScene: SKScene {
            
            // add the cat to the array
         self.fishes.append(fish)
-           
+        
+//        if(fishes.count <= 10){
+//        fish.removeFromParent()
+//        }
+      for (index, fish) in self.fishes.enumerated() {
+        if( self.direction == "right"){
+            fish.position.x = fish.position.x + 200
+            
+            if (fish.position.x >= size.width) {
+                // bounce off left wall
+               self.direction = "left"
+            }
+        }else if (fish.position.x <= 0 ){
+
+        fish.position.x = fish.position.x - 200
+            
+            self.direction = "right"
+
        }
-    
+        }
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             let mouseTouch = touches.first
                      if( mouseTouch == nil){
@@ -106,8 +125,8 @@ class GameScene: SKScene {
 
              print("location: \(mouseTouch!.location(in: self.view))")
              let nodeTouched = atPoint(location).name
-             if(nodeTouched == "play"){
-                  flag = true
+             if(nodeTouched == "rope"){
+                 // flag = true
 
                let moveUp: SKAction
                var moveDown: SKAction
@@ -122,8 +141,7 @@ class GameScene: SKScene {
             
         }
     
-    
-    var numLoops = 0
+   
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -140,6 +158,8 @@ class GameScene: SKScene {
             self.spawnFish()
 
         }
+        
+      
         
     }
     
