@@ -31,8 +31,8 @@ class GameScene: SKScene {
         water = SKSpriteNode(imageNamed: "water")
        
         mud = SKSpriteNode(imageNamed: "mud")
-       mud.position = CGPoint(x: 365.208, y: 81.018)
-addChild(mud)
+//       mud.position = CGPoint(x: 365.208, y: 81.018)
+//addChild(mud)
         
         hook = SKSpriteNode(imageNamed: "hook")
         addChild(hook)
@@ -95,7 +95,9 @@ addChild(mud)
 //        }
       for (index, fish) in self.fishes.enumerated() {
         if( self.direction == "right"){
-            fish.position.x = fish.position.x + 200
+           
+        
+ fish.position.x = fish.position.x + 200
             
             if (fish.position.x >= size.width) {
                 // bounce off left wall
@@ -104,10 +106,10 @@ addChild(mud)
         }else if (fish.position.x <= 0 ){
 
         fish.position.x = fish.position.x - 200
-            
-            self.direction = "right"
 
-       }
+            self.direction = "right"
+        }
+       
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
